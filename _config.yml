@@ -28,7 +28,7 @@ baseurl: "/gabrieljones.it/" # the subpath of your site, e.g. /blog
 url: "https://gjones-it.github.io/gabrieljones.it/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
-evidenza: https://gabrielmatteojones.github.io/desk/polostretto.png
+evidenza: https://gjones-it.github.io/gabrieljones.it/evidenza2.png
 
 # Build settings
 theme: minima

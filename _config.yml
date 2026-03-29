@@ -29,6 +29,7 @@ url: "https://gjonesit.github.io/gabrieljones.it/" # the base hostname & protoco
 twitter_username: jekyllrb
 github_username:  jekyll
 evidenza: https://gjones-it.github.io/gabrieljones.it/evidenza2.png
+logo: https://gabrieljones.it/logo_Theme_Yellow%20copia.png
 
 # Build settings
 theme: minima

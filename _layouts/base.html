@@ -155,10 +155,10 @@
 
     <div class="top-utility-bar d-none d-lg-block">
         <div class="container d-flex justify-content-end align-items-center py-2">
-            <a href="https://pannel.ufficio.gabrieljones.it/dashboard/">Dashboard</a>
+            <a href="https://amministrazione.gabrieljones.it/dashboard/">Dashboard</a>
             <a href="/calendar/">CALENDAR</a>
-            <a href="/contacts/">Contacts</a>
-            <a href="https://ufficio.gabrieljones.it">The Office</a>
+            <a href="{{ site.ufficio }}/appuntamento/">Appuntamento</a>
+            <a href="{{ site.ufficio }}">The Office</a>
             <a href="https://amministrazione.gabrieljones.it">EMPLOYEES</a>
         </div>
     </div>
@@ -178,11 +178,11 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown" href="/fi23/" data-bs-toggle="dropdown">Infanzia</a>
+                        <a class="nav-link dropdown" href="{{ site.fi23 }}" data-bs-toggle="dropdown">Infanzia</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/fi23/oratorio/">Oratorio</a></li>
-                            <li><a class="dropdown-item" href="/fi23/grest/">Grest</a></li>
-                            <li><a class="dropdown-item" href="/fi23/mangialibri/">Mangia Libri Fontanafredda</a></li>
+                            <li><a class="dropdown-item" href="{{ site.fi23 }}oratorio/">Oratorio</a></li>
+                            <li><a class="dropdown-item" href="{{ site.fi23 }}grest/">Grest</a></li>
+                            <li><a class="dropdown-item" href="{{ site.fi23 }}mangialibri/">Mangia Libri Fontanafredda</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -193,40 +193,39 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown" href="/OPAC/" data-bs-toggle="dropdown">OPAC</a>
+                        <a class="nav-link dropdown" href="{{ site.opac }}" data-bs-toggle="dropdown">OPAC</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/OPAC/">OPAC</a></li>
-                            <li><a class="dropdown-item" href="/OPAC/about/">About</a></li>
+                            <li><a class="dropdown-item" href="{{ site.opac }}">OPAC</a></li>
+                            <li><a class="dropdown-item" href="{{ site.opac }}/about/">About</a></li>
                         </ul>
                     </li>
                     
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown" href="/fi23/edu/" data-bs-toggle="dropdown">Edu</a>
+                        <a class="nav-link dropdown" href="{{ site.fi23 }}/edu/" data-bs-toggle="dropdown">Edu</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/fi23/edu/risorse/">Risorse Edu</a></li>
+                            <li><a class="dropdown-item" href="{{ site.fi23 }}/edu/risorse/">Risorse Edu</a></li>
                         </ul>
                     </li>
                     
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown" href="/gra/" data-bs-toggle="dropdown">Grafica</a>
+                        <a class="nav-link dropdown" href="{{ site.gra }}/" data-bs-toggle="dropdown">Grafica</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/gra/">Grafica</a></li>
-                            <li><a class="dropdown-item" href="/gra/portfolio/">Portfolio</a></li>
-                            <li><a class="dropdown-item" href="/gra/servizi/">Servizi</a></li>
+                            <li><a class="dropdown-item" href="{{ site.gra }}/">Grafica</a></li>
+                            <li><a class="dropdown-item" href="{{ site.gra }}/portfolio/">Portfolio</a></li>
+                            <li><a class="dropdown-item" href="{{ site.gra }}/servizi/">Servizi</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown" href="#" data-bs-toggle="dropdown">I miei siti</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="https://org.gabrieljones.it">I progetti</a></li>
-                            <li><a class="dropdown-item" href="https://fi23.gabrieljones.it">Infanzia</a></li>
-                            <li><a class="dropdown-item" href="https://progetti.gabrieljones.it">Progetti</a></li>
-                            <li><a class="dropdown-item" href="https://opac.gabrieljones.it">BiblioGab</a></li>
-                            <li><a class="dropdown-item" href="https://blogs.gabrieljones.it">Last News</a></li>
-                            <li><a class="dropdown-item" href="https://FOIA.gabrieljones.it">FOIA</a></li>
-                            <li><a class="dropdown-item" href="https://pannel.ufficio.gabrieljones.it">Mail System</a></li>
+                            <li><a class="dropdown-item" href="/progetti/">I progetti</a></li>
+                            <li><a class="dropdown-item" href="{{ site.fi23 }}">Infanzia</a></li>
+                            <li><a class="dropdown-item" href="{{ site.opac }}">BiblioGab</a></li>
+                            <li><a class="dropdown-item" href="/FOIA/">FOIA</a></li>
+                            <li><a class="dropdown-item" href="https://amministrazione.gabrieljones.it">Mail System</a></li>
                             <li><a class="dropdown-item" href="https://agfo.gabrieljones.it">Arena Giovani</a></li>
                             <li><a class="dropdown-item" href="https://upid.gabrieljones.it">UPID</a></li>
+                            <li><a class="dropdown-item" href="{{ site.ufficio }}">Ufficio</a></li>
                         </ul>
                     </li>
                     <!--<li class="nav-item"><a class="nav-link" href="#">Careers</a></li>-->
@@ -272,25 +271,28 @@
                 <div class="col-6 col-lg-2">
                     <h5>RISORSE</h5>
                     <ul>
-                        <li><a href="#">Libretto Giochi</a></li>
-                        <li><a href="#">Attività</a></li>
-                        <li><a href="#">Progetti</a></li>
+                        <li><a href="{{ site.fi23 }}/risorse/thebook/">Libretto Giochi</a></li>
+                        <li><a href="{{ site.fi23 }}/attivita/">Attività</a></li>
+                        <li><a href="{{ site.fi23 }}">Progetti</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-2">
                     <h5>CONTATTI</h5>
                     <ul>
-                        <li><a href="#">Email</a></li>
-                        <li><a href="#">Ufficio</a></li>
-                        <li><a href="#">Oratorio</a></li>
+                        <li><a href="mailto:fi23@gabrieljones.it">Email</a></li>
+                        <li><a href="{{ site.ufficio }}">Ufficio</a></li>
+                        <li><a href="{{ site.fi23 }}/oratorio/">Oratorio</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
-                    <h5>DISTRETTO</h5>
+                    <h5>L'org</h5>
                     <ul>
-                        <li><a href="#">Documenti FOIA</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Staff Directory</a></li>
+                        <li><a href="/org/about">About</a></li>
+                        <li><a href="/org/legal/">Privacy Policy</a></li>
+                        <li><a href="/progetti/">Staff Directory</a></li>
+                        <li><a href="/directory/">Staff Directory</a></li>
+                        <li><a href="/aree/">Aree Tematiche</a></li>
+                        <li><a href="https://amministrazione.gabrieljones.it">Admin Site</a></li>
                     </ul>
                 </div>
             </div>

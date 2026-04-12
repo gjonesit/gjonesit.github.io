@@ -1,52 +1,64 @@
 ---
 layout: base
 ---
-<article class="post-page">
-    <header class="post-header-dark">
-        <div class="container post-header-content">
-            <span class="section-label" style="color:var(--yellow);">{{ page.category | uppercase }}</span>
-            <h1 class="post-title">{{ page.title }}</h1>
+
+
+<article class="post-container">
+    <header class="post-header">
+        <div class="container">
+            <span class="section-label" style="color: var(--yellow);">PROGETTO GRAFICO</span>
+            <h1 class="post-title">Il mio nuovo progetto grafico</h1>
             
-            <div class="post-meta-grid">
-                <div class="meta-block">
+            <div class="post-meta">
+                <div class="meta-item">
                     <span>DATA</span>
-                    <p>{{ page.date | date: "%d . %m . %Y" }}</p>
+                    <p>27 . 10 . 2023</p>
                 </div>
-                <div class="meta-block">
+                <div class="meta-item">
                     <span>TEMPO DI LETTURA</span>
-                    <p>{{ content | reading_time }} min</p>
+                    <p>5 min</p>
                 </div>
-                {% if page.tags %}
-                <div class="meta-block">
+                <div class="meta-item">
                     <span>TAGS</span>
-                    <p>{{ page.tags | join: ", " }}</p>
+                    <p>Design, Visual, 2026</p>
                 </div>
-                {% endif %}
             </div>
         </div>
     </header>
 
-    <div class="post-main-area">
-        <div class="container post-layout-grid">
-            
-            <aside class="post-sidebar-wrapper">
-                <div class="sticky-author-card">
-                    <p class="author-name">Gabriel J.</p>
-                    <span class="author-title">Fabbricante di Giochi</span>
+    <div class="container">
+        <div class="post-grid">
+            <aside class="post-sidebar">
+                <div class="sticky-note">
+                    <p>GABRIEL J.</p>
+                    <span>Fabbricante di Giochi</span>
                     <hr>
-                    <a href="/blog/" class="back-link">← Tutti i post</a>
+                    <a href="/blog/">← TORNA ALL'INDICE</a>
                 </div>
             </aside>
 
-            <main class="post-body">
-                {% if page.image %}
-                <div class="featured-image-box">
-                    <img src="{{ page.image }}" alt="{{ page.title }}">
+            <main class="post-content">
+                <div class="post-featured-image">
+                    <div style="height: 400px; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white; font-weight: 900;">
+                        [ IMMAGINE DI COPERTINA ]
+                    </div>
                 </div>
-                {% endif %}
-
-                <div class="markdown-content">
-                    {{ content }}
+                
+                <div class="markdown-body">
+                    <p class="lead">Qui inizia il contenuto del tuo post. Il design è stato ottimizzato per la leggibilità e la coerenza visiva con il tuo brand.</p>
+                    
+                    <h2>Sviluppo Creativo</h2>
+                    <p>Puoi usare il <strong>Markdown</strong> per strutturare i tuoi pensieri:</p>
+                    <ul>
+                        <li><strong>Punto elenco uno:</strong> Analisi del concept iniziale.</li>
+                        <li><strong>Punto elenco due:</strong> Sviluppo del prototipo visuale.</li>
+                    </ul>
+                    
+                    <blockquote>
+                        "Il design non è solo come appare, ma come funziona nel contesto sociale."
+                    </blockquote>
+                    
+                    <p>E inserire immagini o testo formattato a tuo piacimento.</p>
                 </div>
             </main>
         </div>
@@ -54,106 +66,147 @@ layout: base
 </article>
 
 <style>
-    /* 1. Reset e Base per la pagina Post */
-    .post-page { background: var(--surface); color: var(--dark); }
+    /* Reset local post tweaks */
+    .post-container { background: var(--surface); }
 
-    /* 2. Post Header (Area Scura) */
-    .post-header-dark {
+    .post-header {
+        padding: 160px 0 80px;
         background: var(--dark);
         color: white;
-        padding: 160px 0 80px; /* Spazio per la navbar fissa */
         border-bottom: var(--border);
     }
-    .post-header-content { display: flex; flex-direction: column; }
 
     .post-title {
         font-family: 'Fraunces';
-        font-size: clamp(2.5rem, 6vw, 5rem);
-        line-height: 0.9;
+        font-size: clamp(2.5rem, 8vw, 5.5rem);
+        line-height: 0.85;
         margin-top: 20px;
-        margin-bottom: 60px;
-        max-width: 900px;
+        letter-spacing: -2px;
     }
 
-    /* Griglia Meta-dati: Risolve la sovrapposizione */
-    .post-meta-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 30px;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        padding-top: 30px;
+    .post-meta {
+        display: flex;
+        gap: 60px;
+        margin-top: 60px;
+        flex-wrap: wrap;
     }
-    .meta-block span {
+
+    .meta-item span {
         font-size: 0.65rem;
         font-weight: 900;
         color: var(--yellow);
-        letter-spacing: 1px;
         display: block;
         margin-bottom: 8px;
+        letter-spacing: 1px;
     }
-    .meta-block p { font-weight: 800; font-size: 1.1rem; }
 
-    /* 3. Post Main Area (Area Chiara con Griglia) */
-    .post-main-area { padding: 80px 0; }
+    .meta-item p {
+        font-weight: 700;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+    }
 
-    .post-layout-grid {
+    /* Griglia Layout */
+    .post-grid {
         display: grid;
         grid-template-columns: 280px 1fr;
-        gap: 60px;
+        gap: 80px;
+        padding: 100px 0;
         align-items: start;
     }
 
-    /* Sidebar Sticky */
-    .post-sidebar-wrapper { position: relative; height: 100%; }
-    
-    .sticky-author-card {
+    .post-sidebar {
+        position: relative;
+    }
+
+    .sticky-note {
         position: sticky;
-        top: 120px; /* Distanza dalla navbar */
-        background: var(--yellow);
+        top: 140px;
         border: var(--border);
-        padding: 25px;
-        transform: rotate(-1.5deg); /* Effetto cartolina */
-        transition: 0.3s;
-    }
-    .sticky-author-card:hover { transform: rotate(0deg) translate(-5px, -5px); box-shadow: 10px 10px 0 var(--dark); }
-    
-    .author-name { font-family: 'Fraunces'; font-weight: 900; font-size: 1.4rem; color: var(--dark); }
-    .author-title { font-size: 0.75rem; font-weight: 800; color: var(--dark); opacity: 0.8; }
-    .sticky-author-card hr { border: none; border-top: 1px solid var(--dark); margin: 15px 0; opacity: 0.2; }
-    .back-link { font-weight: 900; font-size: 0.85rem; color: var(--dark); border-bottom: 2px solid var(--dark); padding-bottom: 2px; }
-
-    /* 4. Tipografia del Contenuto (Markdown) */
-    .post-body { max-width: 800px; } /* Ottimizza la leggibilità */
-
-    .featured-image-box { border: var(--border); margin-bottom: 50px; line-height: 0; background: #eee; }
-    .featured-image-box img { width: 100%; height: auto; display: block; }
-
-    .markdown-content { font-size: 1.15rem; line-height: 1.65; color: var(--dark); }
-    
-    /* Stili Brutalisti per Markdown */
-    .markdown-content h2 { font-family: 'Fraunces'; font-size: 2.4rem; margin: 60px 0 20px; line-height: 1; }
-    .markdown-content h2::after { content:''; display:block; width: 60px; height: 5px; background: var(--primary); margin-top: 10px; }
-    .markdown-content p { margin-bottom: 25px; opacity: 0.9; }
-    
-    .markdown-content ul, .markdown-content ol { margin-bottom: 25px; padding-left: 20px; }
-    .markdown-content li { margin-bottom: 10px; font-weight: 600; }
-    .markdown-content ul li::marker { color: var(--accent); content: '→ '; font-weight: 900; }
-
-    .markdown-content blockquote {
-        margin: 40px 0;
         padding: 30px;
-        background: white;
-        border: var(--border);
-        border-left: 10px solid var(--accent);
-        box-shadow: 8px 8px 0 var(--dark);
-        font-style: italic;
-        font-size: 1.3rem;
+        background: var(--yellow);
+        transform: rotate(-1.5deg);
+        box-shadow: 10px 10px 0 var(--dark);
     }
 
-    /* 5. Responsive */
+    .sticky-note p { font-family: 'Fraunces'; font-weight: 900; font-size: 1.4rem; }
+    .sticky-note span { font-size: 0.75rem; font-weight: 800; opacity: 0.8; }
+    .sticky-note hr { border: none; border-top: 2px solid var(--dark); margin: 20px 0; }
+    .sticky-note a { 
+        font-weight: 900; 
+        font-size: 0.8rem; 
+        color: var(--dark); 
+        text-decoration: underline;
+    }
+
+    /* Contenuto */
+    .post-featured-image {
+        border: var(--border);
+        margin-bottom: 60px;
+        overflow: hidden;
+        box-shadow: 15px 15px 0 var(--primary);
+    }
+
+    .markdown-body {
+        font-size: 1.25rem;
+        line-height: 1.7;
+        color: var(--dark);
+        max-width: 800px;
+    }
+
+    .markdown-body .lead {
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 1.4;
+        margin-bottom: 40px;
+    }
+
+    .markdown-body h2 {
+        font-family: 'Fraunces';
+        font-size: 2.8rem;
+        margin: 60px 0 25px;
+        line-height: 1;
+    }
+
+    .markdown-body p { margin-bottom: 30px; }
+
+    .markdown-body ul {
+        margin-bottom: 30px;
+        padding-left: 20px;
+    }
+
+    .markdown-body li {
+        margin-bottom: 15px;
+        position: relative;
+        list-style: square;
+    }
+
+    .markdown-body blockquote {
+        border: var(--border);
+        padding: 40px;
+        background: white;
+        font-style: italic;
+        font-family: 'Fraunces';
+        font-size: 1.8rem;
+        margin: 60px 0;
+        position: relative;
+    }
+
+    .markdown-body blockquote::before {
+        content: '"';
+        position: absolute;
+        top: -20px;
+        left: 20px;
+        font-size: 5rem;
+        color: var(--accent);
+    }
+
+    /* Mobile */
     @media (max-width: 1024px) {
-        .post-header-dark { padding-top: 140px; }
-        .post-layout-grid { grid-template-columns: 1fr; gap: 40px; }
-        .post-sidebar-wrapper { display: none; } /* Nasconde la sidebar su mobile */
+        .post-grid { grid-template-columns: 1fr; gap: 40px; padding: 60px 0; }
+        .post-sidebar { order: 2; margin-top: 40px; }
+        .sticky-note { transform: none; position: static; }
+        .post-header { padding-top: 140px; }
+        .post-title { font-size: 3.5rem; }
     }
 </style>

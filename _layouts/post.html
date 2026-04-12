@@ -1,194 +1,194 @@
 ---
-layout: base
+layout: default
 ---
-<article class="post-container">
-  <header class="post-header">
-    <div class="post-category-tag">
-      {% if page.categories.size > 0 %}{{ page.categories | first }}{% else %}Journal{% endif %}
+<main class="main-content">
+    <div class="container">
+        <article class="post-page">
+            
+            <header class="post-header">
+                <span class="post-category-tag">
+                    {% if page.categories.size > 0 %}
+                        {{ page.categories | first }}
+                    {% else %}
+                        Journal
+                    {% endif %}
+                </span>
+                
+                <h1 class="post-title">{{ page.title }}</h1>
+                
+                <div class="post-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">DATA:</span> 
+                        <time datetime="{{ page.date | date_to_xmlschema }}">
+                            {{ page.date | date: "%d.%m.%Y" }}
+                        </time>
+                    </div>
+                    {% if page.author %}
+                    <div class="meta-item">
+                        <span class="meta-label">AUTORE:</span> {{ page.author }}
+                    </div>
+                    {% endif %}
+                </div>
+            </header>
+
+            <hr class="post-divider">
+
+            <section class="post-body">
+                {{ content }}
+            </section>
+
+            <footer class="post-footer">
+                <a href="{{ site.baseurl }}/" class="back-link">
+                    <span class="arrow">←</span> TORNA ALL'INDICE
+                </a>
+            </footer>
+            
+        </article>
     </div>
-    <h1 class="post-title">{{ page.title }}</h1>
-    
-    <div class="post-meta">
-      <div class="meta-item">
-        <span class="meta-label">DATA:</span> 
-        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d.%m.%Y" }}</time>
-      </div>
-      {% if page.author %}
-      <div class="meta-item">
-        <span class="meta-label">SCRITTO DA:</span> {{ page.author }}
-      </div>
-      {% endif %}
-    </div>
-  </header>
-
-  <hr class="post-divider">
-
-  <section class="post-content">
-    {{ content }}
-  </section>
-
-  <footer class="post-footer">
-    <a href="{{ "/" | relative_url }}" class="back-link">
-      <span class="arrow">←</span> TORNA ALL'INDICE
-    </a>
-  </footer>
-</article>
+</main>
 
 <style>
-  /* --- RESET & OVERRIDE --- */
-  .post-container {
-    max-width: 900px; /* Leggermente più largo per coerenza con la grid */
-    margin: 160px auto 100px; /* Margine alto per la navbar fixed */
-    padding: 0 5%;
-    font-family: 'Outfit', sans-serif;
-    color: var(--dark);
-  }
+    /* Spostiamo tutto il CSS specifico qui o nel tuo file main.css */
+    .main-content {
+        padding-top: 180px; 
+        min-height: 80vh;
+        background-color: var(--surface);
+    }
 
-  /* --- HEADER STILE GABRIEL JONES --- */
-  .post-header {
-    margin-bottom: 60px;
-  }
+    .post-page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding-bottom: 100px;
+    }
 
-  .post-category-tag {
-    display: inline-block;
-    background: var(--accent);
-    color: white;
-    padding: 5px 12px;
-    font-weight: 900;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-  }
+    .post-category-tag {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        padding: 6px 15px;
+        font-weight: 900;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 25px;
+    }
 
-  .post-title {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(2.5rem, 7vw, 4.5rem);
-    line-height: 0.95;
-    letter-spacing: -2px;
-    margin-bottom: 30px;
-    color: var(--dark);
-  }
+    .post-title {
+        font-family: 'Fraunces', serif;
+        font-size: clamp(2.8rem, 8vw, 5.5rem);
+        line-height: 0.85;
+        letter-spacing: -3px;
+        margin-bottom: 40px;
+        color: var(--dark);
+    }
 
-  .post-meta {
-    display: flex;
-    gap: 30px;
-    border-top: var(--border);
-    padding-top: 20px;
-  }
+    .post-meta {
+        border-top: var(--border);
+        padding-top: 25px;
+        display: flex;
+        gap: 40px;
+    }
 
-  .meta-item {
-    font-size: 0.8rem;
-    font-weight: 800;
-  }
+    .meta-item {
+        font-size: 0.85rem;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
 
-  .meta-label {
-    color: var(--primary);
-    margin-right: 5px;
-  }
+    .meta-label {
+        color: var(--primary);
+        margin-right: 8px;
+    }
 
-  .post-divider {
-    border: 0;
-    border-top: 4px solid var(--dark);
-    margin: 40px 0;
-  }
+    .post-divider {
+        border: 0;
+        border-top: 6px solid var(--dark);
+        margin: 50px 0;
+    }
 
-  /* --- CORPO DEL TESTO --- */
-  .post-content {
-    font-size: 1.2rem;
-    line-height: 1.6;
-  }
+    /* TYPOGRAPHY OVERRIDE PER IL CONTENT GENERATO DA MARKDOWN */
+    .post-body {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        color: var(--dark);
+    }
 
-  .post-content p {
-    margin-bottom: 1.8rem;
-  }
+    .post-body p { margin-bottom: 2rem; }
+    
+    .post-body h2, .post-body h3 {
+        font-family: 'Fraunces', serif;
+        line-height: 1;
+        margin: 4rem 0 1.5rem;
+    }
 
-  .post-content h2, .post-content h3 {
-    font-family: 'Fraunces', serif;
-    margin: 3.5rem 0 1.5rem;
-    line-height: 1;
-  }
+    .post-body h2 { font-size: 3rem; letter-spacing: -1px; }
 
-  .post-content h2 { font-size: 2.5rem; }
+    .post-body ul, .post-body ol { 
+        margin-bottom: 2.5rem; 
+        padding-left: 25px;
+    }
+    
+    .post-body li { 
+        margin-bottom: 12px;
+        font-weight: 500;
+    }
 
-  /* Citazioni "fanzine" style */
-  .post-content blockquote {
-    background: var(--yellow);
-    border: var(--border);
-    padding: 40px;
-    margin: 50px 0;
-    font-family: 'Fraunces';
-    font-size: 1.5rem;
-    font-weight: 700;
-    position: relative;
-  }
+    .post-body blockquote {
+        background: var(--yellow);
+        border: var(--border);
+        padding: 50px;
+        margin: 60px 0;
+        font-family: 'Fraunces';
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.1;
+        position: relative;
+    }
 
-  .post-content blockquote::before {
-    content: '"';
-    font-size: 5rem;
-    position: absolute;
-    top: -20px;
-    left: 10px;
-    opacity: 0.2;
-  }
+    .post-body img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: var(--border);
+        box-shadow: 12px 12px 0 var(--primary);
+        margin: 4rem 0;
+    }
 
-  .post-content img {
-    width: 100%;
-    border: var(--border);
-    margin: 3rem 0;
-    /* Effetto ombra tipico del tuo sito */
-    box-shadow: 10px 10px 0 var(--primary);
-  }
+    .post-footer {
+        margin-top: 100px;
+        padding-top: 40px;
+        border-top: var(--border);
+    }
 
-  .post-content code {
-    background: #eef2f7;
-    padding: 4px 8px;
-    border: 1px solid var(--dark);
-    font-family: monospace;
-    font-size: 0.9em;
-  }
+    .back-link {
+        font-weight: 900;
+        color: var(--dark);
+        display: inline-flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 0.9rem;
+        transition: var(--transition);
+    }
 
-  /* --- FOOTER --- */
-  .post-footer {
-    margin-top: 100px;
-    padding: 40px 0;
-    border-top: var(--border);
-  }
+    .back-link .arrow {
+        background: var(--primary);
+        color: white;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: var(--border);
+    }
 
-  .back-link {
-    font-weight: 900;
-    color: var(--dark);
-    text-decoration: none;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    transition: var(--transition);
-  }
+    .back-link:hover .arrow {
+        background: var(--accent);
+        transform: translateX(-12px);
+    }
 
-  .back-link .arrow {
-    background: var(--primary);
-    color: white;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--dark);
-  }
-
-  .back-link:hover {
-    color: var(--primary);
-  }
-
-  .back-link:hover .arrow {
-    transform: translateX(-5px);
-    background: var(--dark);
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .post-title { font-size: 3rem; }
-    .post-meta { flex-direction: column; gap: 10px; }
-  }
+    @media (max-width: 1024px) {
+        .main-content { padding-top: 140px; }
+        .post-title { font-size: 3.5rem; }
+        .post-body blockquote { padding: 30px; font-size: 1.5rem; }
+    }
 </style>

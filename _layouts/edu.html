@@ -1,10 +1,14 @@
 ---
 layout: base
 ---
+
+
+
 <style>
-    .subnav {
+
+.subnav {
     position: sticky;
-    top: 80px; /* altezza header */
+    top: 80px;
     width: 100%;
     background: white;
     border-bottom: var(--border);
@@ -14,13 +18,30 @@ layout: base
 .subnav-inner {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 10px 5%;
+    padding: 12px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+/* SINISTRA */
+.subnav-left {
+    font-weight: 900;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+/* DESTRA */
+.subnav-right {
     display: flex;
     gap: 25px;
     overflow-x: auto;
 }
 
-.subnav-inner a {
+.subnav-right a {
     font-size: 0.7rem;
     font-weight: 900;
     text-transform: uppercase;
@@ -32,21 +53,36 @@ layout: base
     white-space: nowrap;
 }
 
-.subnav-inner a:hover {
+.subnav-right a:hover {
     border-color: var(--primary);
     color: var(--primary);
 }
+
+
 </style>
+
+
+
+
+
+
 
 
 
 <div class="subnav">
     <div class="subnav-inner">
-        <a href="{{ site.url }}/oratorio/">Overview</a>
-        <a href="{{ site.url }}/blog/oratorio/">Blog</a>
-        <a href="{{ site.url }}/oratorio/maggio/">Progetti</a>
-        <a href="{{ site.url }}/ufficio/contatti/">Contatti</a>
+
+        <div class="subnav-left">
+            ORATORIO
+        </div>
+
+        <div class="subnav-right">
+            <a href="{{ site.url }}/oratorio/">Overview</a>
+            <a href="{{ site.url }}/blog/oratorio/">Blog</a>
+            <a href="{{ site.url }}/oratorio/maggio/">Progetti</a>
+            <a href="{{ site.url }}/ufficio/contatti/">Contatti</a>
+        </div>
+
     </div>
 </div>
-
 {{ content }}

@@ -6,20 +6,42 @@ layout: base
     <div class="container">
         
         <section class="hero-grid">
+<a href="/oratorio/">
             <div class="hero-main">
                 <div>
-                    <span class="section-label" style="color:white; opacity:0.6;">Indice 2026</span>
+                    <span class="section-label" style="color:white; opacity:0.6;">Progetti 2026</span>
                     <h1>Fabbricante di <br>giochi.</h1>
                 </div>
                 <div class="signature">Gabriel Jones</div>
             </div>
+</a>
 
             <div class="top-card">
-                <div class="card-header">Status / Evidenze</div>
-                <div class="card-row" onclick="location.href='/oratorio/blog/meccaniche'">
-                    <span>Ultimo Post</span>
-                    <p>Meccaniche di gioco applicate alla didattica attiva.</p>
-                </div>
+                <div class="card-header">In Evidenza</div>
+
+
+
+                
+                    {% assign last = site.posts.first %}
+
+                    <div class="card-row" onclick="location.href='{{ last.url }}'">
+                        <span>Ultimo Post</span>
+                        <p>{{ last.title }}</p>
+                    </div>
+
+
+
+
+
+
+
+                    {% assign posts = site.oratorioposts | sort: "date" | reverse %}
+                    {% assign last = posts.first %}
+
+                    <div class="card-row" onclick="location.href='/blog/oratorio/{{ last.slug }}'">
+                        <p>{{ last.title }}</p>
+                    </div>
+
                 <div class="card-row">
                     <span>Nuova Release</span>
                     <p>Protocollo Civico: Il boardgame sul FOIA.</p>
@@ -35,14 +57,14 @@ layout: base
             <span class="section-label">Journal</span>
             <h2 class="section-title">Diario dei Giochi.</h2>
             <div class="blog-item">
-                <a href="/oratorio/blog/1">Narrazione e Roleplay nel Grest</a>
+                <a href="/blog/oratorio/1">Narrazione e Roleplay nel Grest</a>
                 <span style="font-weight:900;">→</span>
             </div>
             <div class="blog-item">
-                <a href="/oratorio/blog/2">Gamification del monitoraggio civico</a>
+                <a href="/blog/oratorio/2">Gamification del monitoraggio civico</a>
                 <span style="font-weight:900;">→</span>
             </div>
-            <div style="margin-top:30px;"><a href="/oratorio/blog/" style="font-weight:900; border-bottom:3px solid var(--primary);">Vedi tutto l'archivio /blog/</a></div>
+            <div style="margin-top:30px;"><a href="/blog/oratorio/" style="font-weight:900; border-bottom:3px solid var(--primary);">Vedi tutto l'archivio /blog/</a></div>
         </section>
 
         <section style="margin-bottom:100px;">

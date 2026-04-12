@@ -34,12 +34,11 @@ evidenza: https://gjones-it.github.io/gabrieljones.it/evidenza2.png
 theme: minima
 plugins:
   - jekyll-feed
-buk: https://gabrielmatteojones.github.io/
+buk: https://gabrieljones.it/
 
 collections:
-  fascicoli:
+  oratorioposts:
     output: true
-    permalink: /fascicoli/:title/
   posts:
     output: true
 

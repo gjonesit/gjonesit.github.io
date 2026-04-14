@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: page
 title: Arena Giovani
 permalink: /progetti/arenagiovani/
 ---

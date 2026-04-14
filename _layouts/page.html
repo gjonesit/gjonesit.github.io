@@ -24,12 +24,14 @@ layout: base
 
 {% assign last = site.posts.first %}
 
+{% if last %}
 <div class="card-row" onclick="location.href='{{ last.url }}'">
     <h4>Ultimo Post</h4>
     <h1>{{ last.title }}</h1>
 </div>
-
 {% endif %}
+
+
 <!--
                 <div class="card-row" style="border-left: 6px solid var(--accent);">
                     <span>Alert System</span>

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Scheda Progetto Monster
 permalink: /desk/monster/
 settore: generale

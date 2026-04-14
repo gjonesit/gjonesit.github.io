@@ -14,25 +14,30 @@ layout: base
                 <div class="signature">Gabriel Jones</div>
             </div>
         </a>
-<!---
-        <div class="top-card">
-            <div class="card-header">In Evidenza</div>
 
-            {% assign last = site.posts.first %}
 
-            {% if last %}
-            <div class="card-row" onclick="location.href='{{ last.url }}'">
-                <h4>Ultimo Post</h4>
-                <h1>{{ last.title }}</h1>
-            </div>
-            {% endif %}
-<!--
-            <div class="card-row" style="border-left: 6px solid var(--accent);">
-                <span>Alert System</span>
-                <p>Apertura iscrizioni workshop formazione Maggio.</p>
-            </div>
-->
-        </div>-->
+
+{% comment %}
+<div class="top-card">
+    <div class="card-header">In Evidenza</div>
+
+    {% assign last = site.posts.first %}
+
+    {% if last %}
+    <div class="card-row" onclick="location.href='{{ last.url }}'">
+        <h4>Ultimo Post</h4>
+        <h1>{{ last.title }}</h1>
+    </div>
+    {% endif %}
+
+    <div class="card-row" style="border-left: 6px solid var(--accent);">
+        <span>Alert System</span>
+        <p>Apertura iscrizioni workshop formazione Maggio.</p>
+    </div>
+</div>
+{% endcomment %}
+
+
     </section>
 
     <!--

@@ -1,0 +1,151 @@
+---
+layout: base
+title: Jones Blog
+permalink: /about/jones/
+---
+
+
+<div style="padding-top: 140px; min-height: 100vh; box-sizing: border-box;">
+    <div class="container">
+        
+        <div style="margin-bottom: 80px;">
+            <span class="section-label">Blogs</span>
+            <h1 style="font-family: 'Fraunces'; font-size: clamp(3rem, 10vw, 6rem); line-height: 0.85; margin-top: 10px;">
+                Ciao sono, <br><span style="color: var(--primary);">Gabriel!</span>
+            </h1>
+            <p style="max-width: 600px; margin-top: 30px; font-size: 1.2rem; opacity: 0.8; font-weight: 600;">
+                Animatore, grafico e nerd, benvenuti in una piccola parte della mia vita! Io sono Gabriel e mi piace fare tante cose! 
+            </p>
+        </div>
+
+        <div style="border-top: var(--border); margin-bottom: 100px;">
+            {% for post in site.posts %}
+                {% if post.categories contains "joes" %}
+                <article class="blog-archive-item">
+                    <a href="{{ post.url }}" class="blog-link">
+                        <div class="blog-meta">
+                            <span class="post-date">{{ post.date | date: "%d %b %y" }}</span>
+                            {% if post.tags %}
+                                <span class="post-tag">{{ post.tags | first | uppercase }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="blog-title-wrap">
+                            <h2 class="blog-entry-title">{{ post.title }}</h2>
+                            <p class="blog-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+                        </div>
+                        <div class="blog-arrow">→</div>
+                    </a>
+                </article>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <section style="background: var(--dark); color: white; padding: 60px; border: var(--border); margin-bottom: 100px; position: relative; overflow: hidden;">
+            <div style="position: absolute; right: -20px; bottom: -20px; font-family: 'Fraunces'; font-size: 12rem; opacity: 0.05; font-weight: 900;">GREST</div>
+            <div style="position: relative; z-index: 1;">
+                <h3 style="font-family: 'Fraunces'; font-size: 2.5rem; margin-bottom: 20px;">Serve il materiale originale?</h3>
+                <p style="max-width: 500px; opacity: 0.8; margin-bottom: 30px;">Ottieni una guida completa con giochi, attività e molto altro materiale.</p>
+                <p style="max-width: 500px; opacity: 1; margin-bottom: 30px;">Dal 20 aprile 2026</p>
+                <a href="{{ site.url }}/opac/fabbricantedigiochi/" style="background: var(--yellow); color: var(--dark); padding: 15px 30px; font-weight: 900; text-transform: uppercase; font-size: 0.8rem;">Approfondisci</a>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<style>
+    /* STILE LISTA POST */
+    .blog-archive-item {
+        border-bottom: var(--border);
+        transition: var(--transition);
+    }
+
+    .blog-link {
+        display: grid;
+        grid-template-columns: 180px 1fr 80px;
+        align-items: center;
+        padding: 40px 20px;
+        color: var(--dark);
+        transition: all 0.4s ease;
+    }
+
+    .blog-archive-item:hover {
+        background: white;
+        transform: scale(1.01);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        z-index: 2;
+    }
+
+    .blog-archive-item:hover .blog-arrow {
+        transform: translateX(15px);
+        color: var(--primary);
+    }
+
+    .blog-archive-item:hover .blog-entry-title {
+        color: var(--primary);
+    }
+
+    /* META DATA */
+    .blog-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .post-date {
+        font-weight: 900;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--accent);
+    }
+
+    .post-tag {
+        font-size: 0.6rem;
+        font-weight: 900;
+        background: var(--dark);
+        color: white;
+        padding: 4px 8px;
+        width: fit-content;
+    }
+
+    /* TITOLI */
+    .blog-entry-title {
+        font-family: 'Fraunces';
+        font-size: 2.2rem;
+        line-height: 1;
+        margin-bottom: 10px;
+        transition: 0.3s;
+    }
+
+    .blog-excerpt {
+        font-size: 0.95rem;
+        opacity: 0.6;
+        font-weight: 500;
+        max-width: 700px;
+    }
+
+    .blog-arrow {
+        font-size: 2.5rem;
+        font-weight: 300;
+        text-align: right;
+        transition: 0.4s;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+        .blog-link {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 30px 10px;
+        }
+        .blog-arrow {
+            display: none;
+        }
+        .blog-meta {
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+        }
+    }
+</style>

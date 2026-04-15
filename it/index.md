@@ -16,7 +16,13 @@ tags:
 
 highlight:
   title: In conclusione
-  text: Nasce per dare strumenti semplici ma potenti agli educatori.
+  text: Grazie per essere passato di qui :)
+
+Questo spazio è un piccolo riassunto di quello che sono e di quello che mi piace fare. Se sei arrivato fino in fondo, vuol dire che un pezzetto del mio mondo l’hai già scoperto.
+
+Il sito è in continua evoluzione, proprio come me: nuove idee, nuovi progetti e nuove cose da imparare arrivano sempre.
+
+A presto 👋
 ---
 
 ## Chi sono

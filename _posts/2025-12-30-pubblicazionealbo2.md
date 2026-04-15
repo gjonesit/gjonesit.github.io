@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Pubblicazione conclusione progetti AGFO - UPID"
-date: 2024-12-30 10:00:00 +0200
+date: 2025-12-30 10:00:00 +0200
 slug: progetto-logo
 categories: FOIA
 ---

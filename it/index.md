@@ -23,19 +23,19 @@ highlight:
 
 Hey ciao! Mi chiamo Gabriel Jones, sono nato nel 2008 e mi piace fare un sacco di cose :)
 
-Il mondo della grafica è quello che studio praticamente ogni giorno, è il mio spazio creativo dove posso esprimermi davvero. Ho anche un mio sito, **dagab.it**, dove porto avanti questo lato. L’informatica invece è quel mondo che mi incuriosisce sempre di più: non so tutto (ovviamente 😅), ma mi piace esplorarlo e scoprire cose nuove.
+Il mondo della grafica è quello che studio praticamente ogni giorno, è il mio spazio creativo dove posso esprimermi davvero. Ho anche un mio sito, [**dagab.it**](https://www.dagab.it/), dove porto avanti questo lato. L’informatica invece è quel mondo che mi incuriosisce sempre di più: non so tutto (ovviamente 😅), ma mi piace esplorarlo e scoprire cose nuove.
 
-Poi c’è YouTube… diciamo che è uno di quei sogni che tengo lì, bello acceso. Mi piacerebbe entrarci davvero, creare contenuti miei e condividere quello che faccio e che mi piace.
+Poi c’è YouTube… diciamo che è uno di quei sogni che tengo lì, bello acceso. Mi piacerebbe entrarci davvero, creare contenuti miei e condividere quello che faccio e che mi piace. [Scopri di più in merito.](/progetti/youtube/)
 
 Amo anche il cinema (sono sempre in cerca di bei film da vedere) e la lettura, che è uno di quei mondi capaci di farti sognare anche quando sei fermo nello stesso posto.
 
-Per un periodo sono stato bibliotecario volontario, ed è stata un’esperienza che mi ha lasciato tanto. Da lì è nata anche una cosa concreta: ho creato la sezione **OPAC** del sito (la trovi su `/OPAC/`).
+Per un periodo sono stato bibliotecario volontario, ed è stata un’esperienza che mi ha lasciato tanto. Da lì è nata anche una cosa concreta: ho creato la sezione **OPAC** del sito (la trovi su `[/OPAC/](/opac/)`).
 
 E poi arriviamo al mio mondo preferito.
 Potrò non sembrare il tipico animatore… ma amo esserlo davvero. Direi che una parte importante della mia vita gira attorno a questo (sì, anche se sembra strano haha).
 
 Stare con i bambini è qualcosa che mi fa stare bene, soprattutto con i più piccoli (1ª–3ª elementare), ma mi trovo bene anche con i più grandi. Mi piace creare momenti belli, farli divertire, ma anche crescere insieme a loro.
 
-Se ti interessa questo lato, ho anche una sezione dedicata all’infanzia: la trovi su `/fi23/`.
+Se ti interessa questo lato, ho anche una sezione dedicata all’infanzia: la trovi su `[/fi23/](https://fi23.gabrieljones.it/)`.
 
-In più, ho creato anche un piccolo spazio organizzativo: si chiama **Ufficio Digitale di Gabriel Jones**. È una parte del sito (la trovi su `/ufficio/`) dove puoi vedere il calendario, accedere alla directory e ai vari servizi che utilizzo.
+In più, ho creato anche un piccolo spazio organizzativo: si chiama **Ufficio Digitale di Gabriel Jones**. È una parte del sito (la trovi su `[/ufficio/](https://ufficio.gabrieljones.it/)`) dove puoi vedere il calendario, accedere alla directory e ai vari servizi che utilizzo.

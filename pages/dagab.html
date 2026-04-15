@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: base
 title: "Da Gab 2026"
 description: "Benvenuti nel mio studio!"
 category: DaGab
@@ -10,6 +10,154 @@ tags:
   - grafica
 ---
 
+
+
+
+
+<style>
+  .hero-mix {
+    padding: 120px 0 80px;
+  }
+
+  .hero-mix-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: stretch;
+  }
+
+  .hero-mix-text {
+    background: var(--primary);
+    color: white;
+    padding: 60px;
+    border: var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-mix-label {
+    opacity: 0.6;
+    font-size: 0.9rem;
+  }
+
+  .hero-mix-title {
+    font-family: 'Fraunces';
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 0.9;
+    margin: 20px 0;
+  }
+
+  .hero-mix-desc {
+    max-width: 500px;
+    opacity: 0.85;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  .hero-mix-sign {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    font-family: 'Homemade Apple';
+    color: var(--yellow);
+    transform: rotate(-3deg);
+    font-size: 1.8rem;
+  }
+
+  .hero-mix-visual {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    gap: 20px;
+  }
+
+  .hero-mix-img {
+    border: var(--border);
+    overflow: hidden;
+    background: #eee;
+  }
+
+  .hero-mix-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-mix-panel {
+    border: var(--border);
+    background: white;
+    padding: 30px;
+  }
+
+  .hero-mix-panel h3 {
+    font-family: 'Fraunces';
+    margin-bottom: 10px;
+  }
+
+  .hero-mix-panel p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    line-height: 1.5;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-mix-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-mix-sign {
+      position: static;
+      margin-top: 30px;
+      display: block;
+      transform: none;
+    }
+  }
+</style>
+
+<section class="hero-mix">
+  <div class="container">
+
+    <div class="hero-mix-grid">
+
+      <!-- TESTO -->
+      <div class="hero-mix-text">
+
+        <div class="hero-mix-label">Portfolio / Freelance</div>
+
+        <h1 class="hero-mix-title">
+          DaGab
+        </h1>
+
+        <p class="hero-mix-desc">
+          Un hero che combina testo, layout e visual per creare un impatto immediato.
+          Perfetto per presentare lavori, brand o progetti creativi.
+        </p>
+
+        <div class="hero-mix-sign">Gabriel Jones</div>
+
+      </div>
+
+      <!-- VISUALE -->
+      <div class="hero-mix-visual">
+
+        <div class="hero-mix-img">
+          <img src="https://picsum.photos/800/600?random=20" alt="">
+        </div>
+
+        <div class="hero-mix-panel">
+          <h3>Direzione creativa</h3>
+          <p>
+            Layout, identità visiva e sviluppo front-end in un unico sistema coerente.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
 <h1> Chi sono </h1>
 
 <p>Sono Gabriel (in arte DaGab) mi occupo di grafica a 360°: mi piace impaginare, creare illustrazioni, lavorare con la fotografia e sperimentare diversi linguaggi visivi. Ogni progetto è un’occasione per imparare qualcosa di nuovo e trovare soluzioni che uniscano estetica e funzionalità.</p>
@@ -17,6 +165,12 @@ tags:
 <p>L’obiettivo è crescere in questo campo e costruire, passo dopo passo, un percorso solido nel mondo della grafica.</p>
 
 <p>Qui trovi anche il mio portfolio, dove raccolgo alcuni dei miei lavori e progetti più significativi.</p>
+
+
+
+
+
+
 
 
 <style>

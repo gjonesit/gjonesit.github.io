@@ -1,0 +1,134 @@
+---
+layout: page
+title: "Da Gab 2026"
+description: "Benvenuti nel mio studio!"
+category: DaGab
+date: 2026-01-01
+permalink: /studio/
+
+tags:
+  - grafica
+---
+
+## Chi sono
+
+Sono Gabriel (in arte DaGab) mi occupo di grafica a 360°: mi piace impaginare, creare illustrazioni, lavorare con la fotografia e sperimentare diversi linguaggi visivi. Ogni progetto è un’occasione per imparare qualcosa di nuovo e trovare soluzioni che uniscano estetica e funzionalità.
+
+L’obiettivo è crescere in questo campo e costruire, passo dopo passo, un percorso solido nel mondo della grafica.
+
+Qui trovi anche il mio portfolio, dove raccolgo alcuni dei miei lavori e progetti più significativi.
+
+
+<style>
+  .works {
+    margin: 100px 0;
+  }
+
+  .works-title {
+    font-family: 'Fraunces';
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .work-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border: var(--border);
+    background: white;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+
+  .work-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .work-image {
+    aspect-ratio: 4 / 3;
+    background: #eee;
+    overflow: hidden;
+  }
+
+  .work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .work-info {
+    padding: 20px;
+    border-top: var(--border);
+  }
+
+  .work-info h3 {
+    font-size: 1.1rem;
+    font-weight: 900;
+    margin: 0 0 5px;
+  }
+
+  .work-info span {
+    font-size: 0.8rem;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 900px) {
+    .works-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .works-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<section class="works">
+  <div class="container">
+
+    <h2 class="works-title">Ultimi lavori</h2>
+
+    <div class="works-grid">
+
+      <a class="work-card" href="#">
+        <div class="work-image">
+          <img src="https://picsum.photos/600/400?random=10">
+        </div>
+        <div class="work-info">
+          <h3>Progetto Aurora</h3>
+          <span>Branding</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="#">
+        <div class="work-image">
+          <img src="https://picsum.photos/600/400?random=11">
+        </div>
+        <div class="work-info">
+          <h3>Studio Nova</h3>
+          <span>Web Design</span>
+        </div>
+      </a>
+
+      <a class="work-card" href="#">
+        <div class="work-image">
+          <img src="https://picsum.photos/600/400?random=12">
+        </div>
+        <div class="work-info">
+          <h3>Identity Lab</h3>
+          <span>UI/UX</span>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</section>

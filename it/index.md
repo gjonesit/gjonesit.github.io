@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Chi sono?
-description: Mi piace fare un po' di tutto, ti va di conoscerci?
+title: "Chi sono?"
+description: "Mi piace fare un po' di tutto, ti va di conoscerci?"
 category: About Me
 date: 2024-01-10
 permalink: /about/
@@ -15,11 +15,8 @@ tags:
   - oratorio
 
 highlight:
-  title: In conclusione
-  text: Grazie per essere passato di qui :)
-Questo spazio è un piccolo riassunto di quello che sono e di quello che mi piace fare. Se sei arrivato fino in fondo, vuol dire che un pezzetto del mio mondo l’hai già scoperto.
-Il sito è in continua evoluzione, proprio come me: nuove idee, nuovi progetti e nuove cose da imparare arrivano sempre.
-A presto 👋
+  title: "In conclusione"
+  text: "Grazie per essere passato di qui :) Questo spazio è un piccolo riassunto di quello che sono e di quello che mi piace fare. Se sei arrivato fino in fondo, vuol dire che un pezzetto del mio mondo l’hai già scoperto. Il sito è in continua evoluzione, proprio come me: nuove idee, nuovi progetti e nuove cose da imparare arrivano sempre. A presto 👋"
 ---
 
 ## Chi sono

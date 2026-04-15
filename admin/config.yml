@@ -5,19 +5,46 @@ backend:
 media_folder: "images"
 public_folder: "/images"
 
-site_url: ""
-logo_url: "/logo.png"
+site_url: "https://gabrieljones.it"
+logo_url: "https://spotorno.infoteca.it/bw/logo.svg"
 
 collections:
+  # POST BLOG
   - name: "posts"
     label: "Blog"
     folder: "_posts"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Titolo", name: "title", widget: "string" }
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Data", name: "date", widget: "datetime" }
-      - { label: "Immagine", name: "image", widget: "image" }
+      - { label: "Descrizione", name: "description", widget: "text", required: false }
+      - { label: "Categorie", name: "categories", widget: "list", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Immagine", name: "image", widget: "image", required: false }
+      - { label: "Contenuto", name: "body", widget: "markdown" }
+
+  # PAGINE
+  - name: "pages"
+    label: "Pagine"
+    folder: "_pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Descrizione", name: "description", widget: "text", required: false }
+      - { label: "Categoria", name: "category", widget: "string", required: false }
+      - { label: "Data", name: "date", widget: "datetime", required: false }
+      - { label: "Permalink", name: "permalink", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - label: "Highlight"
+        name: "highlight"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Titolo", name: "title", widget: "string" }
+          - { label: "Testo", name: "text", widget: "text" }
       - { label: "Contenuto", name: "body", widget: "markdown" }

@@ -1,7 +1,7 @@
 ---
-layout: base
-title: Jones Blog
-permalink: /about/jones/
+layout: page
+title: Guida Completa: Usare Affinity Designer su Chromebook (Linux Crostini)
+permalink: /affinity/
 ---
 
 

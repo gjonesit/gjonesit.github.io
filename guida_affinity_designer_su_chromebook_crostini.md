@@ -1,7 +1,19 @@
 ---
 layout: page
-title: Guida Completa: Usare Affinity Designer su Chromebook (Linux Crostini)
+title: "Installare Affinity Designer su Chromebook (Linux Crostini)"
+description: "Guida Completa: Usare Affinity Designer su Chromebook (Linux Crostini"
+category: DexEx
+date: 2026-01-01
 permalink: /affinity/
+
+tags:
+  - affinity
+  - design
+  - gjones
+
+highlight:
+  title: "AVVISO"
+  text: "La pagina è privata, ritorna il 1° giugno 2026"
 ---
 
 

@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "Ciaoo! Sono DSA e ADHD, ne parliamo?"
-date: 2025-12-30 10:00:00 +0200
-slug: sono-dsa-e-adhd
+title: "Perché uso Zoho Mail (e perché potrebbe piacerti)"
+date: 2026-04-17 10:00:00 +0200
+slug: vantaggi-zoho-mail
 categories: jones
----
+-----------------
 
-Sono DSA e ADHD.
+Zoho Mail è un servizio di posta elettronica pensato per chi vuole qualcosa di più pulito, essenziale e orientato al lavoro: niente pubblicità invasive, interfaccia ordinata e una forte attenzione alla privacy.
 
-DSA (Disturbi Specifici dell’Apprendimento) significa che il mio cervello elabora in modo diverso cose come lettura, scrittura o calcolo: non è una questione di intelligenza, ma di percorso e strategie diverse per imparare.
+Per me significa meno distrazioni: apro la mail e faccio quello che devo fare, senza elementi superflui che mi portano altrove. Tutto è organizzato in modo semplice, ma comunque potente quando serve.
 
-ADHD (Disturbo da Deficit di Attenzione e Iperattività) riguarda invece attenzione, impulsi e gestione dell’energia: non è “mancanza di concentrazione”, ma un modo differente di regolare focus e stimoli nel tempo.
+Un altro aspetto importante è l’integrazione: calendario, contatti, attività e altre app si parlano tra loro. Non devo saltare continuamente tra strumenti diversi per tenere traccia delle cose.
 
-Per me questo si traduce in giornate molto variabili: a volte super focalizzato, altre volte più dispersivo, ma sempre con un modo di pensare che tende a fare collegamenti rapidi e non sempre lineari.
+Poi c’è la questione della personalizzazione: posso adattare l’esperienza a come lavoro io, non il contrario. Filtri, regole, layout… piccoli dettagli che fanno la differenza nel tempo.
 
-Non lo vedo come un limite, ma come una parte concreta di come funziono e di come affronto le cose.
+Non lo vedo come “solo un servizio email”, ma come uno spazio di lavoro più tranquillo, che mi aiuta a restare concentrato su quello che conta davvero.

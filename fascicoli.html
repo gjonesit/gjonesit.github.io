@@ -9,7 +9,7 @@ permalink: /fascicoli/
   <input type="text" id="nome" placeholder="Nome">
   <input type="text" id="cognome" placeholder="Cognome">
   <input type="text" id="email" placeholder="email">
-  <input type="text" id="email interna" placeholder="email interna">
+  <input type="text" id="email_interna" placeholder="email_interna">
   <input type="text" id="ruolo" placeholder="ruolo">
   <br><br>
   <textarea id="commenti" placeholder="Note lunghe e commenti..." rows="5" style="width: 100%"></textarea>
@@ -30,7 +30,7 @@ async function salvaPersona() {
     const nome = document.getElementById('nome').value;
     const cognome = document.getElementById('cognome').value;
     const email = document.getElementById('email').value;
-    const email_interna = document.getElementById('email interna').value; // Nota: l'ID ha uno spazio
+    const email_interna = document.getElementById('email_interna').value; // Nota: l'ID ha uno spazio
     const ruolo = document.getElementById('ruolo').value;
     const commenti = document.getElementById('commenti').value;
 
@@ -64,7 +64,7 @@ async function salvaPersona() {
         document.getElementById('nome').value = '';
         document.getElementById('cognome').value = '';
         document.getElementById('email').value = '';
-        document.getElementById('email interna').value = '';
+        document.getElementById('email_interna').value = '';
         document.getElementById('ruolo').value = '';
         document.getElementById('commenti').value = '';
 

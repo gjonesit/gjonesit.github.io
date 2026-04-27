@@ -21,3 +21,101 @@ permalink: /fascicoli/
   <h3>I tuoi contatti:</h3>
   <div id="contatti-container">Caricamento...</div>
 </div>
+
+
+<script>
+  // 1. Funzione per SALVARE una persona nel database
+async function salvaPersona() {
+    // Recupero i valori dagli input usando gli ID corretti
+    const nome = document.getElementById('nome').value;
+    const cognome = document.getElementById('cognome').value;
+    const email = document.getElementById('email').value;
+    const email_interna = document.getElementById('email interna').value; // Nota: l'ID ha uno spazio
+    const ruolo = document.getElementById('ruolo').value;
+    const commenti = document.getElementById('commenti').value;
+
+    // Controllo minimo: il nome deve esserci
+    if (!nome) {
+        alert("Inserisci almeno il nome!");
+        return;
+    }
+
+    // Inserimento su Supabase
+    const { data, error } = await _supabase
+        .from('persone')
+        .insert([
+            { 
+                nome: nome, 
+                cognome: cognome, 
+                email: email, 
+                email_interna: email_interna, 
+                ruolo: ruolo, 
+                note: commenti // mappiamo 'commenti' sulla colonna 'note' del DB
+            }
+        ]);
+
+    if (error) {
+        console.error("Errore salvataggio:", error);
+        alert("Errore: " + error.message);
+    } else {
+        alert("Contatto salvato con successo!");
+        
+        // Pulizia dei campi dopo il salvataggio
+        document.getElementById('nome').value = '';
+        document.getElementById('cognome').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('email interna').value = '';
+        document.getElementById('ruolo').value = '';
+        document.getElementById('commenti').value = '';
+
+        // Aggiorna la lista mostrata senza ricaricare la pagina
+        caricaPersone();
+    }
+}
+
+// 2. Funzione per CARICARE la lista persone dal database
+async function caricaPersone() {
+    const container = document.getElementById('contatti-container');
+    container.innerHTML = "Caricamento in corso...";
+
+    const { data, error } = await _supabase
+        .from('persone')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        console.error("Errore caricamento:", error);
+        container.innerHTML = "Errore nel caricamento dei dati.";
+        return;
+    }
+
+    if (data.length === 0) {
+        container.innerHTML = "Nessun contatto presente.";
+        return;
+    }
+
+    // Costruzione dell'HTML per ogni persona
+    container.innerHTML = ''; // Svuota il caricamento
+    data.forEach(p => {
+        container.innerHTML += `
+            <div style="background: #ffffff; border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <strong style="font-size: 1.1em;">${p.nome || ''} ${p.cognome || ''}</strong>
+                        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">
+                            <span>🏢 ${p.ruolo || 'Nessun ruolo'}</span> | 
+                            <span>📧 ${p.email || 'No email'}</span> | 
+                            <span>🔑 ${p.email_interna || 'No email int.'}</span>
+                        </div>
+                    </div>
+                    <small style="color: #aaa;">${new Date(p.created_at).toLocaleDateString()}</small>
+                </div>
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+                <div style="white-space: pre-wrap; color: #333; font-size: 0.95em; background: #fdfdfd; padding: 10px; border-radius: 4px;">
+                    ${p.note || '<i>Nessuna nota aggiuntiva</i>'}
+                </div>
+            </div>
+        `;
+    });
+}
+</script>

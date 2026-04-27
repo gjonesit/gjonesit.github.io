@@ -1,0 +1,23 @@
+---
+layout: base
+title: Fascicoli
+permalink: /area-personale/login/
+---
+
+<div id="add-person-form" style="margin-top: 20px; border: 1px solid #ccc; padding: 15px;">
+  <h3>Aggiungi Nuovo Contatto</h3>
+  <input type="text" id="nome" placeholder="Nome">
+  <input type="text" id="cognome" placeholder="Cognome">
+  <input type="text" id="email" placeholder="email">
+  <input type="text" id="email interna" placeholder="email interna">
+  <input type="text" id="ruolo" placeholder="ruolo">
+  <br><br>
+  <textarea id="commenti" placeholder="Note lunghe e commenti..." rows="5" style="width: 100%"></textarea>
+  <br>
+  <button onclick="salvaPersona()">Salva nel Database</button>
+</div>
+
+<div id="lista-persone" style="margin-top: 20px;">
+  <h3>I tuoi contatti:</h3>
+  <div id="contatti-container">Caricamento...</div>
+</div>

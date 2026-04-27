@@ -11,6 +11,53 @@
 
 
 
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const _url = 'https://qqahuokqbjlasiwizewa.supabase.co';
+  const _key = 'sb_publishable_yMFbJpf7CDW93dayQ8-_9g_xcvxQVhW';
+  const supabase = supabase.createClient(_url, _key);
+
+  // Esempio: Funzione per caricare la tua lista persone
+  async function caricaCRM() {
+    const { data, error } = await supabase
+      .from('persone')
+      .select('*');
+    
+    if (error) console.error("Errore:", error);
+    else console.log("I tuoi contatti:", data);
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
 <style>
 
 

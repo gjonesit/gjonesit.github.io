@@ -3,119 +3,163 @@ layout: page
 title: Fascicoli
 permalink: /fascicoli/
 ---
+    <style>
+        #loader { position: fixed; inset: 0; background: var(--dark); z-index: 10000; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 0.8s; color: white; }
+        .logo-load { background: var(--primary); color: white; padding: 15px 25px; font-weight: 900; font-size: 2rem; border: 2px solid white; margin-bottom: 10px; }
+        .loaded #loader { transform: translateY(-100%); }
 
-<div id="add-person-form" style="margin-top: 20px; border: 1px solid #ccc; padding: 15px;">
-  <h3>Aggiungi Nuovo Contatto</h3>
-  <input type="text" id="nome" placeholder="Nome">
-  <input type="text" id="cognome" placeholder="Cognome">
-  <input type="text" id="email" placeholder="email">
-  <input type="text" id="email_interna" placeholder="email_interna">
-  <input type="text" id="ruolo" placeholder="ruolo">
-  <br><br>
-  <textarea id="commenti" placeholder="Note lunghe e commenti..." rows="5" style="width: 100%"></textarea>
-  <br>
-  <button onclick="salvaPersona()">Salva nel Database</button>
-</div>
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
+        .hero { padding: 160px 0 60px; }
+        .hero-box { background: var(--primary); color: white; padding: 60px; border: var(--border); position: relative; }
+        .hero-title { font-family: 'Fraunces'; font-size: clamp(2.5rem, 8vw, 5rem); line-height: 0.9; }
 
-<div id="lista-persone" style="margin-top: 20px;">
-  <h3>I tuoi contatti:</h3>
-  <div id="contatti-container">Caricamento...</div>
-</div>
-
-
-<script>
-  // 1. Funzione per SALVARE una persona nel database
-async function salvaPersona() {
-    // Recupero i valori dagli input usando gli ID corretti
-    const nome = document.getElementById('nome').value;
-    const cognome = document.getElementById('cognome').value;
-    const email = document.getElementById('email').value;
-    const email_interna = document.getElementById('email_interna').value; // Nota: l'ID ha uno spazio
-    const ruolo = document.getElementById('ruolo').value;
-    const commenti = document.getElementById('commenti').value;
-
-    // Controllo minimo: il nome deve esserci
-    if (!nome) {
-        alert("Inserisci almeno il nome!");
-        return;
-    }
-
-    // Inserimento su Supabase
-    const { data, error } = await _supabase
-        .from('persone')
-        .insert([
-            { 
-                nome: nome, 
-                cognome: cognome, 
-                email: email, 
-                email_interna: email_interna, 
-                ruolo: ruolo, 
-                note: commenti // mappiamo 'commenti' sulla colonna 'note' del DB
-            }
-        ]);
-
-    if (error) {
-        console.error("Errore salvataggio:", error);
-        alert("Errore: " + error.message);
-    } else {
-        alert("Contatto salvato con successo!");
+        .grid { display: grid; grid-template-columns: 1fr 300px; gap: 60px; margin-top: 40px; }
         
-        // Pulizia dei campi dopo il salvataggio
-        document.getElementById('nome').value = '';
-        document.getElementById('cognome').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('email_interna').value = '';
-        document.getElementById('ruolo').value = '';
-        document.getElementById('commenti').value = '';
+        /* FORM STILE UFFICIO */
+        #add-person-form { background: white; border: var(--border); padding: 30px; margin-bottom: 40px; }
+        #add-person-form input { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; font-family: 'Outfit'; }
+        #add-person-form textarea { width: 100%; padding: 12px; border: 1px solid #ddd; font-family: 'Outfit'; margin-bottom: 15px; }
+        #add-person-form button { background: var(--primary); color: white; padding: 15px 30px; border: none; font-weight: 800; cursor: pointer; text-transform: uppercase; }
+        #add-person-form button:hover { background: var(--dark); }
 
-        // Aggiorna la lista mostrata senza ricaricare la pagina
-        caricaPersone();
-    }
-}
+        .contatto-card { background: white; border: var(--border); padding: 20px; margin-bottom: 20px; transition: 0.3s; }
+        .contatto-card:hover { transform: translate(-4px, -4px); box-shadow: 8px 8px 0 var(--yellow); }
 
-// 2. Funzione per CARICARE la lista persone dal database
-async function caricaPersone() {
-    const container = document.getElementById('contatti-container');
-    container.innerHTML = "Caricamento in corso...";
+        footer { background: var(--dark); color: white; padding: 80px 5% 40px; margin-top: 100px; }
 
-    const { data, error } = await _supabase
-        .from('persone')
-        .select('*')
-        .order('created_at', { ascending: false });
+        @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
 
-    if (error) {
-        console.error("Errore caricamento:", error);
-        container.innerHTML = "Errore nel caricamento dei dati.";
-        return;
-    }
+    <div id="loader">
+        <div class="logo-load">GJ</div>
+        <p>Accesso ai fascicoli in corso...</p>
+    </div>
 
-    if (data.length === 0) {
-        container.innerHTML = "Nessun contatto presente.";
-        return;
-    }
-
-    // Costruzione dell'HTML per ogni persona
-    container.innerHTML = ''; // Svuota il caricamento
-    data.forEach(p => {
-        container.innerHTML += `
-            <div style="background: #ffffff; border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <div>
-                        <strong style="font-size: 1.1em;">${p.nome || ''} ${p.cognome || ''}</strong>
-                        <div style="color: #666; font-size: 0.9em; margin-top: 5px;">
-                            <span>🏢 ${p.ruolo || 'Nessun ruolo'}</span> | 
-                            <span>📧 ${p.email || 'No email'}</span> | 
-                            <span>🔑 ${p.email_interna || 'No email int.'}</span>
-                        </div>
-                    </div>
-                    <small style="color: #aaa;">${new Date(p.created_at).toLocaleDateString()}</small>
-                </div>
-                <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
-                <div style="white-space: pre-wrap; color: #333; font-size: 0.95em; background: #fdfdfd; padding: 10px; border-radius: 4px;">
-                    ${p.note || '<i>Nessuna nota aggiuntiva</i>'}
-                </div>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-box">
+                <h1 class="hero-title">Fascicoli Riservati</h1>
+                <p style="margin-top:15px; opacity:0.8;">Gestione database persone e note ufficio digitale.</p>
             </div>
-        `;
-    });
-}
-</script>
+
+            <div class="grid">
+                <div class="main">
+                    <div id="add-person-form">
+                        <h3 style="margin-bottom:20px;">Nuova Scheda Contatto</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                            <input type="text" id="nome" placeholder="Nome *">
+                            <input type="text" id="cognome" placeholder="Cognome">
+                        </div>
+                        <input type="text" id="email" placeholder="Email Personale">
+                        <input type="text" id="email_interna" placeholder="Email Interna / Secondaria">
+                        <input type="text" id="ruolo" placeholder="Qualifica / Ruolo">
+                        <textarea id="commenti" placeholder="Note lunghe, dettagli e commenti..." rows="6"></textarea>
+                        <button onclick="salvaPersona()">Archivia Fascicolo</button>
+                    </div>
+
+                    <div id="lista-persone">
+                        <h3 style="margin-bottom:20px; font-family: 'Fraunces';">Archivio Corrente</h3>
+                        <div id="contatti-container">Caricamento database...</div>
+                    </div>
+                </div>
+
+                <aside class="sidebar">
+                    <div style="border: var(--border); padding: 20px; background: var(--yellow);">
+                        <h4 style="font-weight: 900;">Info Sistema</h4>
+                        <p style="font-size: 0.85rem; margin-top: 10px;">Stato: <strong>Online</strong></p>
+                        <p style="font-size: 0.85rem;">Database: <strong>Supabase SQL</strong></p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+    <script>
+        // CONFIGURAZIONE SUPABASE
+        const _url = 'https://qqahuokqbjlasiwizewa.supabase.co';
+        const _key = 'sb_publishable_yMFbJpf7CDW93dayQ8-_9g_xcvxQVhW';
+        // Cambio nome variabile in _supabase per evitare conflitti
+        const _supabase = supabase.createClient(_url, _key);
+
+        // FUNZIONE: SALVA PERSONA
+        async function salvaPersona() {
+            const nome = document.getElementById('nome').value;
+            const cognome = document.getElementById('cognome').value;
+            const email = document.getElementById('email').value;
+            const email_interna = document.getElementById('email_interna').value;
+            const ruolo = document.getElementById('ruolo').value;
+            const commenti = document.getElementById('commenti').value;
+
+            if (!nome) {
+                alert("Il nome è obbligatorio per l'archiviazione.");
+                return;
+            }
+
+            const { error } = await _supabase
+                .from('persone')
+                .insert([{ 
+                    nome: nome, 
+                    cognome: cognome, 
+                    email: email, 
+                    email_interna: email_interna, 
+                    ruolo: ruolo, 
+                    note: commenti 
+                }]);
+
+            if (error) {
+                alert("Errore di archiviazione: " + error.message);
+            } else {
+                alert("Fascicolo salvato!");
+                // Pulisce i campi
+                document.querySelectorAll('#add-person-form input, #add-person-form textarea').forEach(el => el.value = '');
+                caricaPersone();
+            }
+        }
+
+        // FUNZIONE: CARICA LISTA
+        async function caricaPersone() {
+            const container = document.getElementById('contatti-container');
+            
+            const { data, error } = await _supabase
+                .from('persone')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                container.innerHTML = "Errore durante il recupero dei dati.";
+                console.error(error);
+                return;
+            }
+
+            if (data.length === 0) {
+                container.innerHTML = "L'archivio è vuoto.";
+                return;
+            }
+
+            container.innerHTML = '';
+            data.forEach(p => {
+                container.innerHTML += `
+                    <div class="contatto-card">
+                        <div style="display:flex; justify-content:space-between;">
+                            <h4 style="color:var(--primary); text-transform:uppercase;">${p.nome} ${p.cognome || ''}</h4>
+                            <small>${new Date(p.created_at).toLocaleDateString()}</small>
+                        </div>
+                        <p style="font-size:0.8rem; font-weight:800; margin: 5px 0;">${p.ruolo || 'Nessun ruolo specifico'}</p>
+                        <div style="font-size:0.85rem; opacity:0.7; margin-bottom:15px;">
+                            <span>E: ${p.email || '-'}</span> | <span>INT: ${p.email_interna || '-'}</span>
+                        </div>
+                        <div style="background:#f0f0f0; padding:15px; border-radius:4px; white-space:pre-wrap; font-size:0.9rem;">${p.note || '<i>Nessun commento presente.</i>'}</div>
+                    </div>
+                `;
+            });
+        }
+
+        // AVVIO
+        window.addEventListener('load', () => {
+            // Rimuove loader
+            setTimeout(() => { document.body.classList.add('loaded'); }, 600);
+            // Carica dati dal database
+            caricaPersone();
+        });
+    </script>

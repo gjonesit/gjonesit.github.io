@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Com. Aggiornamento amministrazione"
-date: 2026-04-17 10:00:00 +0200
-slug: vantaggi-zoho-mail
+date: 2026-01-27 10:00:00 +0200
+slug: Aggiornamento dell'amminsitrazione
 categories: jones
 ---
 

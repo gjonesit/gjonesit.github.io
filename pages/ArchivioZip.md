@@ -30,6 +30,6 @@ highlight:
 ### Accesso
 
 
-**Link di accesso**: [Click Here](https://gabrieljones.it/330788.zip)
+**Link di accesso**: [Click Here](https://gabrieljones.it/archiviozip.zip)
 
 **Modalità di accesso**: Pubblico

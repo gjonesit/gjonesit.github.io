@@ -5,6 +5,280 @@ permalink: /about/jones/
 ---
 
 
+
+<div id="main" role="main" class="container">
+      
+
+
+<nrc-template-schedaservizio>
+  <!--template bindings={}-->
+
+
+
+
+<!--template bindings={}--><main class="nrcbi-template-content nrcbi-template-schedaservizio">
+    <div class="container">
+        <div class="row border-top border-light row-column-border row-column-menu-left attribute-list" id="nrcbi-template-content-body">
+
+            
+
+            <div class="col-lg-8 border-light" id="nrcbi-template-content-body-content">
+
+                <!--template bindings={}--><section class="mb-5 nrcbi-template-schedaservizio_a_chi_e_rivolto" aria-labelledby="nrcbi-template-content-body-sys_a_chi_e_rivolto">
+                    <h2 class="menu-item" id="nrcbi-template-content-body-sys_a_chi_e_rivolto">Ricerca Interna</h2>
+                    <div data-element="service-addressed"><div>
+
+<div class="container my-4">
+
+  <!-- SEARCH BAR -->
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+
+      <div class="input-group mb-4">
+        <input type="text" id="search-input" class="form-control" placeholder="Cerca nel sito..." aria-label="Cerca" data-focus-mouse="false">
+
+        <button class="btn btn-primary" id="search-btn">
+          Cerca
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div id="results">
+      <div class="card shadow-sm mb-3">
+        <div class="card-body">
+          <small class="text-muted">Pagina</small>
+          <h5 class="card-title mt-1">
+            <a href="/links/whatsapp/" class="text-decoration-none">
+              <mark>Whatsapp</mark>
+            </a>
+          </h5>
+          <p class="card-text">
+            L﻿ink: 
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let data = [];
+
+// Carica dati
+fetch("https://intranet.18f.it/search.json")
+  .then(r => r.json())
+  .then(json => {
+    data = json;
+    initSearch();
+  });
+
+// Legge query da URL
+function getQuery() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("q") || "";
+}
+
+// Tronca testo
+function truncate(text, max = 150) {
+  return text.length > max ? text.slice(0, max) + "..." : text;
+}
+
+// Evidenzia testo
+function highlight(text, query) {
+  if (!query) return text;
+  const regex = new RegExp(`(${query})`, "gi");
+  return text.replace(regex, `<mark>$1</mark>`);
+}
+
+function initSearch() {
+  const input = document.getElementById("search-input");
+  const btn = document.getElementById("search-btn");
+  const results = document.getElementById("results");
+
+  // Preload da URL
+  const q = getQuery();
+  input.value = q;
+  render(q);
+
+  // Click bottone
+  btn.addEventListener("click", () => {
+    const value = input.value.trim();
+    history.pushState(null, "", `?q=${encodeURIComponent(value)}`);
+    render(value);
+  });
+
+  // Invio con Enter
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      btn.click();
+    }
+  });
+
+  // Live search
+  input.addEventListener("input", () => {
+    const value = input.value.trim();
+    history.replaceState(null, "", `?q=${encodeURIComponent(value)}`);
+    render(value);
+  });
+
+  // Back/forward browser
+  window.addEventListener("popstate", () => {
+    const q = getQuery();
+    input.value = q;
+    render(q);
+  });
+
+  function render(query) {
+    const q = query.toLowerCase().trim();
+
+    if (!q) {
+      results.innerHTML = `
+        <div class="alert alert-info">
+          Inserisci un termine per cercare.
+        </div>`;
+      return;
+    }
+
+    const filtered = data.filter(item =>
+      item.title.toLowerCase().includes(q) ||
+      item.content.toLowerCase().includes(q)
+    );
+
+    if (filtered.length === 0) {
+      results.innerHTML = `
+        <div class="alert alert-warning">
+          Nessun risultato trovato.
+        </div>`;
+      return;
+    }
+
+    results.innerHTML = filtered.map(item => `
+      <div class="card shadow-sm mb-3">
+        <div class="card-body">
+          <small class="text-muted">${item.category}</small>
+          <h5 class="card-title mt-1">
+            <a href="${item.url}" class="text-decoration-none">
+              ${highlight(item.title, q)}
+            </a>
+          </h5>
+          <p class="card-text">
+            ${highlight(truncate(item.content), q)}
+          </p>
+        </div>
+      </div>
+    `).join("");
+  }
+}
+</script>
+
+</div></div>
+                </section>
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                <section class="nrcbi-template-content__last-update">
+                  <h4 class="h6 u-no-toc">Autore: <span class="h6 fw-normal">Gabriel Jones</span></h4>
+                  <h4 class="h6 u-no-toc">Ultimo aggiornamento: <span class="h6 fw-normal"></span></h4>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</main>
+  </nrc-template-schedaservizio>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div style="padding-top: 140px; min-height: 100vh; box-sizing: border-box;">
     <div class="container">
         

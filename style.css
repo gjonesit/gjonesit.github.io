@@ -338,3 +338,17 @@ footer {
     .artwork-canvas { aspect-ratio: 4 / 3; }
     .dashboard-grid { grid-template-columns: 1fr; gap: 20px; }
 }
+
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: -1;
+}

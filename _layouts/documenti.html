@@ -1,0 +1,38 @@
+---
+layout: base
+---
+
+<main class="main-wrapper anim-ready delay-2">
+
+    <div class="post-header" style="margin-bottom: 50px;">
+        <div class="card-meta">Archivio Risorse</div>
+        <h1 class="post-main-title">{{ page.title}}</h1>
+        {% if page.description %}
+            <p class="card-desc" style="font-size: 14px; margin-top: 15px; max-width: 700px;">{{ page.description }}</p>
+        {% endif %}
+    </div>
+
+    <h2 class="card-meta" style="margin-bottom: 20px; color: var(--color-text-main);">In Evidenza</h2>
+    <div class="dashboard-grid">
+        
+<div class="dash-card">
+    <div>
+        <div class="card-meta">PDF • Gabriel Jones</div>
+
+        <h3 class="card-title">
+            {{ page.title }}
+        </h3>
+
+        <p class="card-desc">
+            {{ content }}
+        </p>
+    </div>
+
+    <a
+        href="{{ page.risorsa }}" class="btn-action" download>
+        Scarica documento
+    </a>
+</div>
+
+
+</main>

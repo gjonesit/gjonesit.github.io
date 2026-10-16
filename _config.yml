@@ -29,7 +29,7 @@ url: "https://gj-on.github.io" # the base hostname & protocol for your site, e.g
 twitter_username: jekyllrb
 github_username:  jekyll
 
-color: 6d91c7
+color: cf3b47
 
 # Build settings
 theme: minima

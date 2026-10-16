@@ -7,7 +7,7 @@ Layout: none
   <defs>
     <style>
       .st0 {
-        fill: #{{ site.color }};
+        fill: #cf3b47;
       }
 
       .st1 {

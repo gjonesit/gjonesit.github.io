@@ -1,0 +1,14 @@
+---
+layout: default
+permalink: /aboutme/
+title: AboutMe
+body_class: page-playbook
+---
+<section class="pb-hero">
+  <p class="eyebrow-light pop">↖ {{ p.label | upcase }}</p>
+  <h1 class="serif-title pop">{{ p.title }}</h1>
+  <p class="pb-lead pop">{{ p.long }}</p>
+  <a class="btn btn-yellow pop" href="{{ p.url }}" target="_blank" rel="noopener">{{ p.button }}</a>
+  <p class="byline pop">Gabriel Jones | {{ 'now' | date: '%Y' }}</p>
+</section>
+<div class="scallop" aria-hidden="true"></div>
